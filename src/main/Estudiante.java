@@ -1,6 +1,11 @@
 package main;
 
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Estudiante {
     private String carne;
@@ -141,5 +146,87 @@ public class Estudiante {
         return res;
     }
 
+    public void catalogar(){
+        try{
+            Constructor<? extends Estudiante> constructor = getClass().getDeclaredConstructor(String.class, String.class,
+                    String.class, String.class, String.class, String.class, Integer.class, Integer.class, Integer.class, Integer.class,
+                    Integer.class, Integer.class);
+            Estudiante estudiante = constructor.newInstance(carne,nombreApellidos,correo,telefono,nickname,
+                    tipoEstudiante,notaPromedioE,notaPromedioQ,notaPromedioT,notaP1,notaP2,notaP3);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
 
+    public static void main(String[] args) throws Exception {
+        int var = 1;
+        int con = 0;
+        int quien = 0;
+        ArrayList<Estudiante> estudiNew = new ArrayList<>();
+        ArrayList<EstudianteA> estudiA = new ArrayList<>();
+        ArrayList<EstudianteB> estudiB = new ArrayList<>();
+
+        List<String> listaBacana = new ArrayList<>();
+        Scanner sc = new Scanner(new File("C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv"));
+        //parsing a CSV file into the constructor of Scanner class
+        sc.useDelimiter("[,:\r\n]+");
+        //setting comma as delimiter pattern
+        while (sc.hasNext()) {
+            if (var <= 1) {
+                sc.nextLine();
+                var++;
+            }
+            if (con == 12) {
+                estudiNew.add(new Estudiante(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+                        listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
+                        Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
+                        Integer.parseInt(listaBacana.get(11))));
+                if (Objects.equals(estudiNew.get(quien).getTipoEstudiante(), "A")){
+                    estudiA.add(new EstudianteA(estudiNew.get(quien).getCarne(), estudiNew.get(quien).getNombreApellidos(),
+                            estudiNew.get(quien).getCorreo(), estudiNew.get(quien).getTelefono(), estudiNew.get(quien).getNickname(),
+                            estudiNew.get(quien).getTipoEstudiante(), estudiNew.get(quien).getNotaPromedioE(), estudiNew.get(quien).getNotaPromedioQ(),
+                            estudiNew.get(quien).getNotaPromedioT(), estudiNew.get(quien).getNotaP1(), estudiNew.get(quien).getNotaP2(),
+                            estudiNew.get(quien).getNotaP3()));
+                }
+                else{
+                    estudiB.add(new EstudianteB(estudiNew.get(quien).getCarne(), estudiNew.get(quien).getNombreApellidos(),
+                            estudiNew.get(quien).getCorreo(), estudiNew.get(quien).getTelefono(), estudiNew.get(quien).getNickname(),
+                            estudiNew.get(quien).getTipoEstudiante(), estudiNew.get(quien).getNotaPromedioE(), estudiNew.get(quien).getNotaPromedioQ(),
+                            estudiNew.get(quien).getNotaPromedioT(), estudiNew.get(quien).getNotaP1(), estudiNew.get(quien).getNotaP2(),
+                            estudiNew.get(quien).getNotaP3()));
+                }
+                listaBacana.clear();
+                con = 0;
+                sc.nextLine();
+                quien++;
+            } else {
+                listaBacana.add(sc.next());
+                con++;
+            }
+        }
+        estudiNew.add(new Estudiante(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+                listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
+                Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
+                Integer.parseInt(listaBacana.get(11))));
+        if (Objects.equals(estudiNew.get(quien).getTipoEstudiante(), "A")){
+            estudiA.add(new EstudianteA(estudiNew.get(quien).getCarne(), estudiNew.get(quien).getNombreApellidos(),
+                    estudiNew.get(quien).getCorreo(), estudiNew.get(quien).getTelefono(), estudiNew.get(quien).getNickname(),
+                    estudiNew.get(quien).getTipoEstudiante(), estudiNew.get(quien).getNotaPromedioE(), estudiNew.get(quien).getNotaPromedioQ(),
+                    estudiNew.get(quien).getNotaPromedioT(), estudiNew.get(quien).getNotaP1(), estudiNew.get(quien).getNotaP2(),
+                    estudiNew.get(quien).getNotaP3()));
+        }
+        else{
+            estudiB.add(new EstudianteB(estudiNew.get(quien).getCarne(), estudiNew.get(quien).getNombreApellidos(),
+                    estudiNew.get(quien).getCorreo(), estudiNew.get(quien).getTelefono(), estudiNew.get(quien).getNickname(),
+                    estudiNew.get(quien).getTipoEstudiante(), estudiNew.get(quien).getNotaPromedioE(), estudiNew.get(quien).getNotaPromedioQ(),
+                    estudiNew.get(quien).getNotaPromedioT(), estudiNew.get(quien).getNotaP1(), estudiNew.get(quien).getNotaP2(),
+                    estudiNew.get(quien).getNotaP3()));
+        }
+        System.out.print(estudiNew.get(2).getNombreApellidos());
+        System.out.print(estudiA.get(1).getNombreApellidos());
+        System.out.print(estudiB.size());
+        sc.close();
+        //closes the scanner
+    }
 }
