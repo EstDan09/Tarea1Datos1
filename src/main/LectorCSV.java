@@ -1,5 +1,5 @@
 package main;
-
+/*
 public class LectorCSV {
     public static void main(String[] args){
         ManipuladorCSV info = new ManipuladorCSV();
@@ -8,3 +8,4 @@ public class LectorCSV {
         info.imprimirDatosArregladoDinamico();
     }
 }
+*/
