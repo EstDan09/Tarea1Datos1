@@ -14,9 +14,7 @@ public class EstudianteB extends Estudiante{
     @Override
     public double notaPromedio(){
         double res = 0.0;
-        if (Objects.equals(getTipoEstudiante(), "A")){
-            res = (getNotaP1() + getNotaP2() + getNotaP3()) / 3.0;
-        }
+        res = (getNotaP1() + getNotaP2() + getNotaP3()) / 3.0;
         return res;
     }
 

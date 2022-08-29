@@ -13,11 +13,13 @@ public class EstudianteA extends Estudiante{
 
     @Override
     public double notaPromedio(){
-        double res = 0.0;
-        if (Objects.equals(getTipoEstudiante(), "A")){
-            res = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3.0;
-        }
-        return res;
+        double res1 = 0.0;
+        double res2 = 0.0;
+        res1 = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3.0;
+        res2 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
+        return res1;
+
+
     }
 
 
