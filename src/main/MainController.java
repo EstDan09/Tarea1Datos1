@@ -20,8 +20,9 @@ import java.net.URL;
 import java.util.*;
 
 public class MainController implements Initializable {
-    private ObservableList<EstudianteA> estudianteAS;
-    private ObservableList<EstudianteB> estudianteBS;
+    private ObservableList<Estudiante> estudianteS;
+    private ArrayList<EstudianteA> estudiA = new ArrayList<>();
+    private ArrayList<EstudianteB> estudiB = new ArrayList<>();
     @FXML
     private TableView<EstudianteA> diosVen;
     @FXML
@@ -64,7 +65,14 @@ public class MainController implements Initializable {
         this.slotTelef.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         this.slotNickname.setCellValueFactory(new PropertyValueFactory<>("nickname"));
         this.slotTipo.setCellValueFactory(new PropertyValueFactory<>("tipoEstudiante"));
-        this.slotNPE.setCellValueFactory(new PropertyValueFactory<>("correo"));
+        this.slotNPE.setCellValueFactory(new PropertyValueFactory<>("notaPromedioE"));
+        this.slotNPQ.setCellValueFactory(new PropertyValueFactory<>("notaPromedioQ"));
+        this.slotNPT.setCellValueFactory(new PropertyValueFactory<>("notaPromedioT"));
+        this.slotNP1.setCellValueFactory(new PropertyValueFactory<>("notaP1"));
+        this.slotNP2.setCellValueFactory(new PropertyValueFactory<>("notaP2"));
+        this.slotNP3.setCellValueFactory(new PropertyValueFactory<>("notaP3"));
+        this.slotPA.setCellValueFactory(new PropertyValueFactory<>("notaPromedio)"));
+
 
     }
     @FXML
@@ -116,6 +124,7 @@ public class MainController implements Initializable {
         System.out.print(estudianteAS.get(1).notaPromedio() + "\n");
         System.out.print(estudianteBS.get(0).notaFinal());
         this.diosVen.setItems(estudianteAS);
+        this.diosVen.setItems(estudianteBS);
         lector.close();
     }
 }
