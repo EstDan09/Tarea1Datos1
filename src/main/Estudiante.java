@@ -21,8 +21,35 @@ public abstract class Estudiante {
     private Integer notaP1;
     private Integer notaP2;
     private Integer notaP3;
+    private String notaPromedioTipoA;
+    private String notaPromedioTipoB;
+    private Integer notaFinal;
     ArrayList<EstudianteA> estudiA = new ArrayList<>();
     ArrayList<EstudianteB> estudiB = new ArrayList<>();
+
+    public String getNotaPromedioTipoB() {
+        return notaPromedioTipoB;
+    }
+
+    public void setNotaPromedioTipoB(String notaPromedioTipoB) {
+        this.notaPromedioTipoB = notaPromedioTipoB;
+    }
+
+    public String getNotaPromedioTipoA() {
+        return notaPromedioTipoA;
+    }
+
+    public void setNotaPromedioTipoA(String notaPromedioTipoA) {
+        this.notaPromedioTipoA = notaPromedioTipoA;
+    }
+
+    public Integer getNotaFinal() {
+        return notaFinal;
+    }
+
+    public void setNotaFinal(Integer notaFinal) {
+        this.notaFinal = notaFinal;
+    }
 
     public String getCarne() {
         return carne;
@@ -88,7 +115,7 @@ public abstract class Estudiante {
         */
     public Estudiante(String carne, String nombreApellidos, String correo, String telefono, String nickname,
                   String tipoEstudiante, Integer notaPromedioE, Integer notaPromedioQ, Integer notaPromedioT,
-                  Integer notaP1, Integer notaP2, Integer notaP3) {
+                  Integer notaP1, Integer notaP2, Integer notaP3, String notaPromedioTipoA, String notaPromedioTipoB, Integer notaFinal) {
         this.carne = carne;
         this.nombreApellidos = nombreApellidos;
         this.correo = correo;
@@ -101,9 +128,12 @@ public abstract class Estudiante {
         this.notaP1 = notaP1;
         this.notaP2 = notaP2;
         this.notaP3 = notaP3;
+        this.notaPromedioTipoA = notaPromedioTipoA;
+        this.notaPromedioTipoB = notaPromedioTipoB;
+        this.notaFinal = notaFinal;
 
     }
-    public abstract double notaPromedio();
+    public abstract String notaPromedio();
 
-    public abstract double notaFinal();
+    public abstract Integer notaFinal();
 }

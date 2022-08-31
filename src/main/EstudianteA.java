@@ -1,28 +1,35 @@
 package main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.util.Objects;
 
 public class EstudianteA extends Estudiante{
 
     public EstudianteA(String carne, String nombreApellidos, String correo, String telefono, String nickname,
-                      String tipoEstudiante, Integer notaPromedioE, Integer notaPromedioQ, Integer notaPromedioT,
-                      Integer notaP1, Integer notaP2, Integer notaP3){
-        super (carne,nombreApellidos,correo,telefono,nickname,tipoEstudiante,notaPromedioE,notaPromedioQ,notaPromedioT,notaP1,notaP2,notaP3);
+                       String tipoEstudiante, Integer notaPromedioE, Integer notaPromedioQ, Integer notaPromedioT,
+                       Integer notaP1, Integer notaP2, Integer notaP3, String notaPromedioTipoA, String notaPromedioTipoB, Integer notaFinal){
+        super (carne,nombreApellidos,correo,telefono,nickname,tipoEstudiante,notaPromedioE,notaPromedioQ,notaPromedioT,notaP1,notaP2,notaP3, notaPromedioTipoA,
+                notaPromedioTipoB, notaFinal);
     }
-
 
     @Override
-    public double notaPromedio(){
-        double res1 = 0.0;
-        double res2 = 0.0;
-        res1 = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3.0;
-        res2 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
-        return res1;
+    public String notaPromedio(){
+        Integer res1 = 0;
+        res1 = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3;
+        setNotaPromedioTipoA(Integer.toString(res1));
+        return Integer.toString(res1);
     }
 
-    public double notaFinal(){
-        double res0 = 0.0;
-        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
+    public Integer notaFinal(){
+        Integer res0 = 0;
+        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000;
+        setNotaFinal(res0);
         return res0;
     }
 

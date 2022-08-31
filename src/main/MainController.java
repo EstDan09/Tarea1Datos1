@@ -24,41 +24,40 @@ public class MainController implements Initializable {
     private ArrayList<EstudianteA> estudiA = new ArrayList<>();
     private ArrayList<EstudianteB> estudiB = new ArrayList<>();
     @FXML
-    private TableView<EstudianteA> diosVen;
+    private TableView<Estudiante> diosVen;
     @FXML
-    private TableColumn<EstudianteA, String> slotCarne;
+    private TableColumn<Estudiante, String> slotCarne;
     @FXML
-    private TableColumn<EstudianteA, String> slotNombre;
+    private TableColumn<Estudiante, String> slotNombre;
     @FXML
-    private TableColumn<EstudianteA, String> slotCorreo;
+    private TableColumn<Estudiante, String> slotCorreo;
     @FXML
-    private TableColumn<EstudianteA, String> slotTelef;
+    private TableColumn<Estudiante, String> slotTelef;
     @FXML
-    private TableColumn<EstudianteA, String> slotNickname;
+    private TableColumn<Estudiante, String> slotNickname;
     @FXML
-    private TableColumn<EstudianteA, String> slotTipo;
+    private TableColumn<Estudiante, String> slotTipo;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNPE;
+    private TableColumn<Estudiante, Integer> slotNPE;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNPQ;
+    private TableColumn<Estudiante, Integer> slotNPQ;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNPT;
+    private TableColumn<Estudiante, Integer> slotNPT;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNP1;
+    private TableColumn<Estudiante, Integer> slotNP1;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNP2;
+    private TableColumn<Estudiante, Integer> slotNP2;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotNP3;
+    private TableColumn<Estudiante, Integer> slotNP3;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotPA;
+    private TableColumn<Estudiante, Integer> slotPA;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotPB;
+    private TableColumn<Estudiante, Integer> slotPB;
     @FXML
-    private TableColumn<EstudianteA, Integer> slotFinal;
+    private TableColumn<Estudiante, Integer> slotFinal;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        estudianteBS = FXCollections.observableArrayList();
-        estudianteAS = FXCollections.observableArrayList();
+        estudianteS = FXCollections.observableArrayList();
         this.slotCarne.setCellValueFactory(new PropertyValueFactory<>("carne"));
         this.slotNombre.setCellValueFactory(new PropertyValueFactory<>("nombreApellidos"));
         this.slotCorreo.setCellValueFactory(new PropertyValueFactory<>("correo"));
@@ -71,7 +70,9 @@ public class MainController implements Initializable {
         this.slotNP1.setCellValueFactory(new PropertyValueFactory<>("notaP1"));
         this.slotNP2.setCellValueFactory(new PropertyValueFactory<>("notaP2"));
         this.slotNP3.setCellValueFactory(new PropertyValueFactory<>("notaP3"));
-        this.slotPA.setCellValueFactory(new PropertyValueFactory<>("notaPromedio)"));
+        this.slotPA.setCellValueFactory(new PropertyValueFactory<>("notaPromedioTipoA"));
+        this.slotPB.setCellValueFactory(new PropertyValueFactory<>("notaPromedioTipoB"));
+        this.slotFinal.setCellValueFactory(new PropertyValueFactory<>("notaFinal"));
 
 
     }
@@ -79,6 +80,8 @@ public class MainController implements Initializable {
     private void empezarFiesta() throws Exception{
         int var = 1;
         int con = 0;
+        int n = 0;
+        int m = 0;
 
         List<String> listaBacana = new ArrayList<>();
         Scanner lector = new Scanner(new File("C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv"));
@@ -90,16 +93,16 @@ public class MainController implements Initializable {
             }
             if (con == 12) {
                 if (Objects.equals(listaBacana.get(5), "A")){
-                    estudianteAS.add(new EstudianteA(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+                    estudiA.add(new EstudianteA(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
                             listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
                             Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
-                            Integer.parseInt(listaBacana.get(11))));
+                            Integer.parseInt(listaBacana.get(11))," "," ",0));
                 }
                 else{
-                    estudianteBS.add(new EstudianteB(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+                    estudiB.add(new EstudianteB(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
                             listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
                             Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
-                            Integer.parseInt(listaBacana.get(11))));
+                            Integer.parseInt(listaBacana.get(11))," "," ",0));
                 }
                 listaBacana.clear();
                 con = 0;
@@ -110,21 +113,32 @@ public class MainController implements Initializable {
             }
         }
         if (Objects.equals(listaBacana.get(5), "A")){
-            estudianteAS.add(new EstudianteA(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+            estudiA.add(new EstudianteA(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
                     listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
                     Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
-                    Integer.parseInt(listaBacana.get(11))));
+                    Integer.parseInt(listaBacana.get(11))," "," ",0));
         }
         else{
-            estudianteBS.add(new EstudianteB(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
+            estudiB.add(new EstudianteB(listaBacana.get(0), listaBacana.get(1), listaBacana.get(2), listaBacana.get(3),
                     listaBacana.get(4), listaBacana.get(5), Integer.parseInt(listaBacana.get(6)), Integer.parseInt(listaBacana.get(7)),
                     Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
-                    Integer.parseInt(listaBacana.get(11))));
+                    Integer.parseInt(listaBacana.get(11))," "," ",0));
         }
-        System.out.print(estudianteAS.get(1).notaPromedio() + "\n");
-        System.out.print(estudianteBS.get(0).notaFinal());
-        this.diosVen.setItems(estudianteAS);
-        this.diosVen.setItems(estudianteBS);
+        while(n < estudiA.size()){
+            estudiA.get(n).notaFinal();
+            estudiA.get(n).notaPromedio();
+            n++;
+        }
+        while(m < estudiB.size()){
+            estudiB.get(m).notaFinal();
+            estudiB.get(m).notaPromedio();
+            m++;
+        }
+        System.out.print(estudiA.get(1).notaFinal() + "\n");
+        System.out.print(estudiB.get(0).notaFinal());
+        estudianteS.addAll(estudiA);
+        estudianteS.addAll(estudiB);
+        this.diosVen.setItems(estudianteS);
         lector.close();
     }
 }
