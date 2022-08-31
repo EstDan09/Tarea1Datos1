@@ -18,8 +18,12 @@ public class EstudianteA extends Estudiante{
         res1 = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3.0;
         res2 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
         return res1;
+    }
 
-
+    public double notaFinal(){
+        double res0 = 0.0;
+        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
+        return res0;
     }
 
 

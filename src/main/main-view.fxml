@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="527.0" prefWidth="567.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+<VBox alignment="CENTER" prefHeight="481.0" prefWidth="946.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" prefHeight="16.0" prefWidth="102.0" text="Pepe" />
+   <children>
+      <TableView prefHeight="358.0" prefWidth="527.0">
+        <columns>
+          <TableColumn prefWidth="40.79998779296875" text="Carné" />
+          <TableColumn prefWidth="47.999996185302734" text="Nombre y Apellidos" />
+            <TableColumn prefWidth="56.0" text="Correo" />
+            <TableColumn prefWidth="58.399993896484375" text="Telefono" />
+            <TableColumn prefWidth="61.59999084472656" text="Nickname" />
+            <TableColumn prefWidth="67.99993896484375" text="Tipo de Estudainte" />
+            <TableColumn prefWidth="63.99993896484375" text="NotaPromedioEx" />
+            <TableColumn prefWidth="72.79998779296875" text="NotaPromedioQui" />
+            <TableColumn prefWidth="62.39996337890625" text="NotaPromedioTar" />
+            <TableColumn prefWidth="82.39996337890625" text="NotaProyecto1" />
+            <TableColumn prefWidth="57.60003662109375" text="NotaProyecto2" />
+            <TableColumn prefWidth="55.2000732421875" text="NotaProyecto3" />
+            <TableColumn minWidth="0.0" prefWidth="36.7999267578125" text="PromedioPoyectos" />
+            <TableColumn minWidth="0.0" prefWidth="43.2000732421875" text="PromedioExQuiTare" />
+            <TableColumn minWidth="0.0" prefWidth="96.0" text="PromedioFinal" />
+        </columns>
+      </TableView>
+   </children>
 </VBox>

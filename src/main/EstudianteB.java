@@ -18,5 +18,10 @@ public class EstudianteB extends Estudiante{
         return res;
     }
 
+    public double notaFinal(){
+        double res0 = 0.0;
+        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
+        return res0;
+    }
 
 }

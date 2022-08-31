@@ -25,97 +25,60 @@ public abstract class Estudiante {
         return carne;
     }
 
-    public void setCarne(String carne) {
-        this.carne = carne;
-    }
 
     public String getNombreApellidos() {
         return nombreApellidos;
     }
 
-    public void setNombreApellidos(String nombreApellidos) {
-        this.nombreApellidos = nombreApellidos;
-    }
 
     public String getCorreo() {
         return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
 
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 
     public String getTipoEstudiante() {
         return tipoEstudiante;
     }
 
-    public void setTipoEstudiante(String tipoEstudiante) {
-        this.tipoEstudiante = tipoEstudiante;
-    }
 
     public Integer getNotaPromedioE() {
         return notaPromedioE;
     }
 
-    public void setNotaPromedioE(Integer notaPromedioE) {
-        this.notaPromedioE = notaPromedioE;
-    }
 
     public Integer getNotaPromedioQ() {
         return notaPromedioQ;
     }
 
-    public void setNotaPromedioQ(Integer notaPromedioQ) {
-        this.notaPromedioQ = notaPromedioQ;
-    }
 
     public Integer getNotaPromedioT() {
         return notaPromedioT;
     }
 
-    public void setNotaPromedioT(Integer notaPromedioT) {
-        this.notaPromedioT = notaPromedioT;
-    }
 
     public Integer getNotaP1() {
         return notaP1;
     }
 
-    public void setNotaP1(Integer notaP1) {
-        this.notaP1 = notaP1;
-    }
 
     public Integer getNotaP2() {
         return notaP2;
     }
 
-    public void setNotaP2(Integer notaP2) {
-        this.notaP2 = notaP2;
-    }
 
     public Integer getNotaP3() {
         return notaP3;
     }
 
-    public void setNotaP3(Integer notaP3) {
-        this.notaP3 = notaP3;
-    }
 
     /*
         Metodo Constructor
@@ -137,20 +100,12 @@ public abstract class Estudiante {
         this.notaP3 = notaP3;
 
     }
-
     public abstract double notaPromedio();
 
-    public void catalogar(){
-        try{
-            Constructor<? extends Estudiante> constructor = getClass().getDeclaredConstructor(String.class, String.class,
-                    String.class, String.class, String.class, String.class, Integer.class, Integer.class, Integer.class, Integer.class,
-                    Integer.class, Integer.class);
-            Estudiante estudiante = constructor.newInstance(carne,nombreApellidos,correo,telefono,nickname,
-                    tipoEstudiante,notaPromedioE,notaPromedioQ,notaPromedioT,notaP1,notaP2,notaP3);
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
+    public double notaFinal(){
+        double res0 = 0.0;
+        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000.0;
+        return res0;
     }
 
     public static void main(String[] args) throws Exception {
@@ -161,11 +116,11 @@ public abstract class Estudiante {
         ArrayList<EstudianteB> estudiB = new ArrayList<>();
 
         List<String> listaBacana = new ArrayList<>();
-        Scanner sc = new Scanner(new File("C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv"));
-        sc.useDelimiter("[,:\r\n]+");
-        while (sc.hasNext()) {
+        Scanner lector = new Scanner(new File("C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv"));
+        lector.useDelimiter("[,:\r\n]+");
+        while (lector.hasNext()) {
             if (var <= 1) {
-                sc.nextLine();
+                lector.nextLine();
                 var++;
             }
             if (con == 12) {
@@ -183,9 +138,9 @@ public abstract class Estudiante {
                 }
                 listaBacana.clear();
                 con = 0;
-                sc.nextLine();
+                lector.nextLine();
             } else {
-                listaBacana.add(sc.next());
+                listaBacana.add(lector.next());
                 con++;
             }
         }
@@ -201,8 +156,8 @@ public abstract class Estudiante {
                     Integer.parseInt(listaBacana.get(8)), Integer.parseInt(listaBacana.get(9)), Integer.parseInt(listaBacana.get(10)),
                     Integer.parseInt(listaBacana.get(11))));
         }
-        System.out.print(estudiA.get(1).notaPromedio());
-        System.out.print(estudiB.get(1).notaPromedio());
-        sc.close();
+        System.out.print(estudiA.get(1).notaPromedio() + "\n");
+        System.out.print(estudiB.get(0).notaFinal());
+        lector.close();
     }
 }
