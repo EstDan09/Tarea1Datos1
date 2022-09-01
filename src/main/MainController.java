@@ -1,20 +1,14 @@
 package main;
 
-import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.ReadOnlyStringProperty;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -82,9 +76,11 @@ public class MainController implements Initializable {
         int con = 0;
         int n = 0;
         int m = 0;
+        String ubi = "C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv";
+
 
         List<String> listaBacana = new ArrayList<>();
-        Scanner lector = new Scanner(new File("C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv"));
+        Scanner lector = new Scanner(new File(ubi));
         lector.useDelimiter("[,:\r\n]+");
         while (lector.hasNext()) {
             if (var <= 1) {

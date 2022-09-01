@@ -32,6 +32,4 @@ public class EstudianteA extends Estudiante{
         setNotaFinal(res0);
         return res0;
     }
-
-
 }

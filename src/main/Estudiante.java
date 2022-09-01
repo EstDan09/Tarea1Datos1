@@ -1,12 +1,6 @@
 package main;
 
-import javafx.application.Application;
-
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 public abstract class Estudiante {
     private String carne;
@@ -24,8 +18,6 @@ public abstract class Estudiante {
     private String notaPromedioTipoA;
     private String notaPromedioTipoB;
     private Integer notaFinal;
-    ArrayList<EstudianteA> estudiA = new ArrayList<>();
-    ArrayList<EstudianteB> estudiB = new ArrayList<>();
 
     public String getNotaPromedioTipoB() {
         return notaPromedioTipoB;
@@ -111,8 +103,8 @@ public abstract class Estudiante {
 
 
     /*
-        Metodo Constructor
-        */
+    Metodo Constructor
+    */
     public Estudiante(String carne, String nombreApellidos, String correo, String telefono, String nickname,
                   String tipoEstudiante, Integer notaPromedioE, Integer notaPromedioQ, Integer notaPromedioT,
                   Integer notaP1, Integer notaP2, Integer notaP3, String notaPromedioTipoA, String notaPromedioTipoB, Integer notaFinal) {
