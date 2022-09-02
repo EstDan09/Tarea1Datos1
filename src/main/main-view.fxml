@@ -30,6 +30,7 @@
             <TableColumn fx:id="slotFinal" minWidth="0.0" prefWidth="100" text="PromedioFinal" />
         </columns>
       </TableView>
-      <Button mnemonicParsing="false" onMouseClicked="#empezarFiesta" text="Button" />
+      <Button mnemonicParsing="false" onMouseClicked="#empezarFiesta" text="Calcular" />
+      <Button mnemonicParsing="false" onMouseClicked="#getText" text="Cargar CSV" />
    </children>
 </VBox>

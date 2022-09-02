@@ -4,17 +4,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.stage.FileChooser;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import java.awt.event.ActionEvent;
+
+
 
 public class MainController implements Initializable {
     private ObservableList<Estudiante> estudianteS;
+    private File archivo;
     private ArrayList<EstudianteA> estudiA = new ArrayList<>();
     private ArrayList<EstudianteB> estudiB = new ArrayList<>();
     @FXML
@@ -49,6 +55,14 @@ public class MainController implements Initializable {
     private TableColumn<Estudiante, Integer> slotPB;
     @FXML
     private TableColumn<Estudiante, Integer> slotFinal;
+
+    FileChooser seleccionador = new FileChooser();
+
+
+    @FXML
+    private void getText(MouseEvent event) {
+         archivo = seleccionador.showOpenDialog(new Stage());
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudianteS = FXCollections.observableArrayList();
@@ -76,11 +90,9 @@ public class MainController implements Initializable {
         int con = 0;
         int n = 0;
         int m = 0;
-        String ubi = "C:\\Users\\eseca\\IdeaProjects\\Tarea1Datos1\\TablaEstudiantes.csv";
-
 
         List<String> listaBacana = new ArrayList<>();
-        Scanner lector = new Scanner(new File(ubi));
+        Scanner lector = new Scanner(new File(String.valueOf(archivo)));
         lector.useDelimiter("[,:\r\n]+");
         while (lector.hasNext()) {
             if (var <= 1) {
