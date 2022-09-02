@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
@@ -30,7 +31,8 @@
             <TableColumn fx:id="slotFinal" minWidth="0.0" prefWidth="100" text="PromedioFinal" />
         </columns>
       </TableView>
+      <Label prefHeight="18.0" prefWidth="675.0" text="Primero dale click a &quot;Cargar CSV&quot; y selecciona el CSV que quieras inicializar y luego dale a &quot;Calcular&quot; para visualizar los datos :)" />
       <Button mnemonicParsing="false" onMouseClicked="#empezarFiesta" text="Calcular" />
-      <Button mnemonicParsing="false" onMouseClicked="#getText" text="Cargar CSV" />
+      <Button mnemonicParsing="false" onMouseClicked="#cargarArchivo" text="Cargar CSV" />
    </children>
 </VBox>

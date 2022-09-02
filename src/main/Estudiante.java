@@ -1,7 +1,7 @@
 package main;
-
-import java.util.ArrayList;
-
+/**
+ * Esta es mi clase principal abstracta, de la cual salen las subclases EstudiantesA y EstudiantesB
+ */
 public abstract class Estudiante {
     private String carne;
     private String nombreApellidos;
@@ -15,6 +15,9 @@ public abstract class Estudiante {
     private Integer notaP1;
     private Integer notaP2;
     private Integer notaP3;
+    /**
+     * Estos 3 atributos son Strings que mis metodos van a reescribir para poder completar las columnas extra que mi programa calcula
+     */
     private String notaPromedioTipoA;
     private String notaPromedioTipoB;
     private Integer notaFinal;
@@ -125,7 +128,12 @@ public abstract class Estudiante {
         this.notaFinal = notaFinal;
 
     }
+    /**
+     * Metodo abstracto que las subclases usan para sacar el promedio especifico de su clase
+     */
     public abstract String notaPromedio();
-
+    /**
+     * Metodo abstracto para sacar el promedio final
+     */
     public abstract Integer notaFinal();
 }

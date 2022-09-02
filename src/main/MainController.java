@@ -13,11 +13,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.*;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import java.awt.event.ActionEvent;
-
-
-
+/**
+ * Clase MainController para manejar las funciones que los elementos de la ventana van a utilizar
+ */
 public class MainController implements Initializable {
     private ObservableList<Estudiante> estudianteS;
     private File archivo;
@@ -58,9 +56,11 @@ public class MainController implements Initializable {
 
     FileChooser seleccionador = new FileChooser();
 
-
+    /**
+     * El metodo notaFinal() calcula la nota final
+     */
     @FXML
-    private void getText(MouseEvent event) {
+    private void cargarArchivo(MouseEvent event) {
          archivo = seleccionador.showOpenDialog(new Stage());
     }
     @Override

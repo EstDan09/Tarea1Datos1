@@ -17,7 +17,9 @@ public class EstudianteB extends Estudiante{
         super (carne,nombreApellidos,correo,telefono,nickname,tipoEstudiante,notaPromedioE,notaPromedioQ,notaPromedioT,notaP1,notaP2,notaP3, notaPromedioTipoA,
                 notaPromedioTipoB, notaFinal);
     }
-
+    /**
+     * El mmetodo notaPromedio() de EstudianteB calcula el promedio especifico de esta sublclase
+     */
     @Override
     public String notaPromedio(){
         Integer res = 0;
@@ -25,10 +27,12 @@ public class EstudianteB extends Estudiante{
         setNotaPromedioTipoB(Integer.toString(res));
         return Integer.toString(res);
     }
-
+    /**
+     * El metodo notaFinal() calcula la nota final
+     */
     public Integer notaFinal(){
         Integer res0 = 0;
-        res0 = getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + 1000;
+        res0 = (getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT() + ((getNotaPromedioE() + getNotaPromedioQ() + getNotaPromedioT()) / 3)) / 4;
         setNotaFinal(res0);
         return res0;
     }
