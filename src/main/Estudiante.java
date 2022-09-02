@@ -2,6 +2,9 @@ package main;
 /**
  * Esta es mi clase principal abstracta, de la cual salen las subclases EstudiantesA y EstudiantesB
  */
+/*
+Aquí aplico abstracción ya que tengo una clase abstracta como mi superclase para facilitar la realización de la tarea
+ */
 public abstract class Estudiante {
     private String carne;
     private String nombreApellidos;

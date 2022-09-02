@@ -63,6 +63,9 @@ public class MainController implements Initializable {
     private void cargarArchivo(MouseEvent event) {
          archivo = seleccionador.showOpenDialog(new Stage());
     }
+    /**
+     * En esta parte se define la infomración que va a ir en cada celda
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudianteS = FXCollections.observableArrayList();
@@ -84,6 +87,10 @@ public class MainController implements Initializable {
 
 
     }
+    /**
+     * El metodo empezarFiesta() comienza a generar las instancias de las clases EstudiantesA y EstudiantesB y a llenar
+     * la tabla de JavaFX
+     */
     @FXML
     private void empezarFiesta() throws Exception{
         int var = 1;
@@ -142,8 +149,6 @@ public class MainController implements Initializable {
             estudiB.get(m).notaPromedio();
             m++;
         }
-        System.out.print(estudiA.get(1).notaFinal() + "\n");
-        System.out.print(estudiB.get(0).notaFinal());
         estudianteS.addAll(estudiA);
         estudianteS.addAll(estudiB);
         this.diosVen.setItems(estudianteS);

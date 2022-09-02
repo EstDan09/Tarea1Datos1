@@ -11,7 +11,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("TablaHD2022EnMP3!");
+        stage.setTitle("Tarea 1 - Datos I - Esteban Secaida");
         stage.setScene(scene);
         stage.show();
     }
