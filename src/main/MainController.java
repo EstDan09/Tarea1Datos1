@@ -88,8 +88,9 @@ public class MainController implements Initializable {
 
     }
     /**
-     * El metodo empezarFiesta() comienza a generar las instancias de las clases EstudiantesA y EstudiantesB y a llenar
-     * la tabla de JavaFX
+     * El metodo empezarFiesta() comienza a generar las instancias de las clases EstudiantesA y EstudiantesB esto para
+     * llenar la tabla que muestra JavaFX con la información de cada estudiante, tambíen llama a los metodos de estas
+     * dos clases para calcular los promedios
      */
     @FXML
     private void empezarFiesta() throws Exception{
